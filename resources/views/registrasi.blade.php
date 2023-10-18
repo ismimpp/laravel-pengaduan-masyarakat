@@ -8,7 +8,8 @@
 <body>
     <h1>registrasi<h1>
 <form method="POST" action="registrasi">
-    @method('POST')
+ <h1> @method('POST')<h1>
+
     
     <div>
          NIK : <input type="text" name="nik" id="">
