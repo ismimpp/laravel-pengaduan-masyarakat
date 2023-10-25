@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-
-<body>
-<?php
-    $koneksi= mysqli_connect("localhost", "root", "", "pelaporan_pengaduan_masyarakat");
-    
-  
-    $query = $koneksi->query("SELECT * FROM Pengaduan");
-   
-?>
-@include('layout.navbar')
-</nav>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light navbar-light">
-<div class="container">
-<table class="table">
-  <thead>
+@section('content')
+    <h1>{{ $judul }}</h1>
+    <h2>{{auth()->user()->usename}}</h2>
+    <table class="table table-bordered">
+    <thead>
     <tr>
       <th scope="col">NO</th>
       <th scope="col">id</th>

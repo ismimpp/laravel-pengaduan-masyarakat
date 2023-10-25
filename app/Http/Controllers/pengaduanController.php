@@ -45,7 +45,7 @@ class PengaduanController extends Controller
 
       DB::table('pengaduan')->insert([
         'tgl_pengaduan' => date('Y-m-d'),
-        'nik' => '123',
+        'nik' => Auth::user()->nik,
         'isi_laporan' => $isi_pengaduan,
         'foto' => $request->foto->getClientOriginalName(), // mendapatkan foto
         'status' => '0'
@@ -73,4 +73,5 @@ function update($id){
     ->where('id_pengaduan', $id)
     ->update(['isi_laporan' => "isi laporan di update"]);
 }
+
 }

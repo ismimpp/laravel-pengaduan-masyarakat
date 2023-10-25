@@ -6,9 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>login<h1>
- <form method="POST" action="login">
+    <h1>login petugas<h1>
+<form method="POST" action="{{url('/petugas/login_petugas')}}">
  @method('POST')
+ @CSRF
 
     <div>
         Username : <input type="text" name="Username" id="">
@@ -17,9 +18,10 @@
         Password : <input type="Password" name="Password" id="">
 </div>
 <div class="d-grid gap-2 col-4 mx-auto">
-      <button class="btn btn-primary" type="submit">Send</button>
+      <a link href = "{{('home_petugas')}}"><button type="submit" name="login" class="btn-input">Login</button>
+      <div class="button">
 </div>
-
+</form>
 
 </body>
 </html>

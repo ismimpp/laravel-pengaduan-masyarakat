@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class LoginController extends Controller
+class loginController extends Controller
 {
     function index(){
-        return view("Login");
+        return view("login");
     }
     function login(Request $request){
         $dataLogin = $request->only("username","password"); //ambil data
@@ -22,9 +22,10 @@ class LoginController extends Controller
         }
     }
 
-    function logout(){
-        Auth::logout();
+function logout(){
+    Auth::logout();
 
-        return redirect('/logout');
-    }
+    return redirect('/logout');
+}
+
 }
