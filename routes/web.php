@@ -38,6 +38,6 @@ Route::get('/logout', [loginController::class, 'logout']);
 
     Route::middleware(['cekPetugas'])->group(function() {
 Route::post('/petugas/logout', [loginPetugasController::class, 'logout']);
-Route::post('/petugas/login_petugas', [loginPetugasController::class, 'login']);
+Route::get('/petugas/login_petugas', [loginPetugasController::class, 'login']);
 Route::post('/petugas/home_petugas', [loginPetugasController::class, 'home']);
  });
