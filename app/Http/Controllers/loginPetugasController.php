@@ -2,34 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class loginPetugasController extends Controller
+class LoginPetugasController extends Controller
 {
     public function index(){
         
-        return view('login_petugas');
+        return view('auth.login_petugas');
     }
 
-    public function login_petugas(Request $request){
-
-        $data = $request->only('username','password');
-       if(Auth::guard("petugas")->attempt($data)){
-        echo "berhasil login";
-       }else{
-        echo redirect("/petugas/login_petugas")->with("error","username atau password salah");
-       }
+    public function login(Request $request){
+        $data = $request->only('username', 'password');
+        if(Auth::guard('petugas')->attempt($data)){
+            return redirect('petugas/home');
+        }else{
+            return redirect("petugas/login");
+        }
     }
 
-    function logout(){
-        Auth::guard("petugas")->logout();
-        return redirect("/petugas/login_petugas");
-    }
+    public function logout(){
+        Auth::guard('petugas')->logout();
 
-    public function home_petugas(){
-        return view('home_petugas');
+        return redirect('/petugas/login');
     }
 }

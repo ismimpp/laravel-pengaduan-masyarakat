@@ -3,26 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Faceades\DB;
-use Illuminate\Support\Faceades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    Function registrasi(){
-        Return view('registrasi');
+    function register(){
+        return view('/register');
     }
 
     function store(Request $request){
-        var_dump($request->all());
+       // var_dump($request->all());
         //Masukan Data
 
         $data = DB::table("masyarakat")->insert([
             'nik' => $request->nik,
-            'Nama' => $request->nama,
+            'nama' => $request->nama,
             'username' => $request->username,
-            'password' => $request->password,
-            'telp' => $request->telp
-
+            'password' => Hash::make($request->password),
+            'telp'  => $request->telp
         ]);
     }
 }

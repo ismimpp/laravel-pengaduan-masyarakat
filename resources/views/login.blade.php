@@ -9,12 +9,13 @@
     <h1>login<h1>
  <form method="POST" action="login">
  @method('POST')
+ @CSRF
 
     <div>
-        Username : <input type="text" name="Username" id="">
+        Username : <input type="text" name="username" id="">
 </div>
     <div>
-        Password : <input type="Password" name="Password" id="">
+        Password : <input type="Password" name="password" id="">
 </div>
 <div class="d-grid gap-2 col-4 mx-auto">
       <button class="btn btn-primary" type="submit">Send</button>

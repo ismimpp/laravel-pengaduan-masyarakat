@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    <h1>registrasi<h1>
-<form method="POST" action="registrasi">
- <h1> @method('POST')<h1>
+    <h1>Registrasi</h1>
+    <form action={{url('register')}} method="post">
+        @method("POST")
+        @csrf
+        <div>
+            NIK : <input type="text" name="nik" id="">
+        </div>
+        <div>
+            Nama : <input type="text" name="nama" id="">
+        </div>
+        <div>
+            Username : <input type="text" name="username" id="">
+        </div>
+        <div>
+            Password : <input type="password" name="password" id="">
+        </div>
+        <div>
+            Telp : <input type="text" name="telp" id="">
+        </div>
+    <input type="submit" value="Simpan">
 
-    
-    <div>
-         NIK : <input type="text" name="nik" id="">
-    </div>
-    <div>
-        Nama : <input type="text" name="nama" id="">
-</div>
-    <div>
-        Username : <input type="text" name="Username" id="">
-</div>
-    <div>
-        Password : <input type="Password" name="Password" id="">
-</div>
-<div class="d-grid gap-2 col-4 mx-auto">
-      <button class="btn btn-primary" type="submit">Send</button>
-</div>
-
-
+</form>
 </body>
 </html>

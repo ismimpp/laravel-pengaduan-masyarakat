@@ -8,24 +8,28 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class loginController extends Controller
+class LoginController extends Controller
 {
     function index(){
-        return view("login");
+        return view("/login");
     }
     function login(Request $request){
-        $dataLogin = $request->only("username","password"); //ambil data
-        if(Auth::attempt($dataLogin)){
-            return redirect ("/home");
-        } else {
-            return redirect ("/login");
+
+       $dataLogin = $request->only("username", "password"); // buat ambil data input
+
+    //    return $dataLogin;
+        if(Auth::attempt($dataLogin)){ // proses login
+            return redirect("/home");
+        }else{
+            return redirect("/login")->with("error", "username atau password salah");
         }
+
     }
 
-function logout(){
-    Auth::logout();
+    function logout(){
+        // Session::flush();
+        Auth::logout();
 
-    return redirect('/logout');
-}
-
+        return redirect('/login');
+    }
 }

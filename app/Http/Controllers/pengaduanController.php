@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PengaduanController extends Controller
@@ -39,13 +40,13 @@ class PengaduanController extends Controller
 
     // nyimpen foto / mindahin file
     $request->foto->storeAs('public/image', $nama_foto);
-
+    $nik = Auth::user()->nik;
       // $isi_pengaduan = $_POST['isi_laporan'];
       $isi_pengaduan = $request->isi_laporan;
 
       DB::table('pengaduan')->insert([
         'tgl_pengaduan' => date('Y-m-d'),
-        'nik' => Auth::user()->nik,
+        'nik' => 1234,
         'isi_laporan' => $isi_pengaduan,
         'foto' => $request->foto->getClientOriginalName(), // mendapatkan foto
         'status' => '0'
@@ -75,3 +76,4 @@ function update($id){
 }
 
 }
+

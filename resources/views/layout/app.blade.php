@@ -5,7 +5,7 @@
         <link rel="stylesheet" href={{asset("bs/css/bootstrap.min.css")}}>
     </head>
     <body>
-   @include('layouts.navbar')
+   @include('layout.navbar')
  
         <div class="container">
             @yield('content')

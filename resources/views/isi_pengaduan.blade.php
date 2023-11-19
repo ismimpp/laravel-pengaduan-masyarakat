@@ -10,7 +10,9 @@
 
 <body>
   @include('layout.navbar')
-  <form action="home" method="POST" enctype="multipart/form-data">
+  <form action="{{url('isi-pengaduan')}}" method="POST" enctype="multipart/form-data">
+    @CSRF
+    @method ('POST')
     <div class="container">
     <label for="formFile" class="form-label">Bukti Foto</label>
         <input class="form-control" type="file" id="formFile" name="foto">
@@ -20,7 +22,6 @@
     </div>
     <div class="d-grid gap-2 col-4 mx-auto">
       <button class="btn btn-primary" type="submit">Send</button>
-      <form action="home" method="POST">
     </div>
   </form>
 </body>

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
 class Petugas extends Authenticatable
 {
     use HasFactory;
@@ -15,7 +14,7 @@ class Petugas extends Authenticatable
         "username",
         "password",
         "telp",
-        "level",
+        "level"
     ];
     protected $table = "petugas";
 }

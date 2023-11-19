@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-   <h1> ini halaman petugas </h1>
+<h1>home petugas<h1>
+<form method="POST" action="{{url('/petugas/home_petugas')}}">
+ @method('POST')
+ @CSRF
+
 </body>
 </html>
